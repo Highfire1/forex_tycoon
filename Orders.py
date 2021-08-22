@@ -27,7 +27,6 @@ class Orders():
     
     # syntax:
     # [stock, player_id, type, money count, share count]
-    # ughh this probably should be a class but whatev
     async def add_order(self, order, ctx):
 
         self.orders.append(order)
@@ -39,15 +38,6 @@ class Orders():
 
         if len(self.orders) <= 1:
             return
-        
-        #print(self.orders)
-        
-        # find lowest selling price
-        #from Stocks import Stock
-        #st = Stock(self.stock)
-        #st
-
-        #for share in stock.data
 
         lowest_price = self.orders[0]
         for order in self.orders:
@@ -64,4 +54,3 @@ class Orders():
                 continue
             if order[3] < lowest_price[3]:
                 print("match found")
-                print("transfer shares n stuff here")
