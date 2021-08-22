@@ -13,18 +13,6 @@ from Stocks import Stock_Interface
 from Mockups import Extra
 from Misc import Info, run_cycle
 
-
-# example on how to use player class
-#bob = Player("213373983754551296")
-#bob.save()
-#print(bob.id)
-#print(bob.balance)
-#print(bob.holdings)
-
-#stock = Stock("apple")
-#stock.save()
-
-
 # setup the bot
 client = commands.Bot(
     case_insensitive=True,
