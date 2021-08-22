@@ -24,8 +24,6 @@ class Stock_Interface(commands.Cog):
             await ctx.reply("Stock doesn't exist .-. Try one of these: ", Globals.stocks)
             return
 
-        # TODO needs an embed
-        
         st = Stock(content)
         # load prices of sellable stock into a dictionary
         stock_prices = {}
@@ -104,9 +102,6 @@ class Stock_Interface(commands.Cog):
         
         # code for selling stock
         elif order[2] == "sell":
-            # TODO: check if we own stock of that type
-            # TODO: set status of stock to a sellingid
-
             # reply with confirmation
             s = "s" if int(order[4]) > 1 else ""
             await ctx.reply(f"Selling {order[4]} share{s} of {order[0]} stock!")
@@ -124,13 +119,11 @@ class Stock():
         self.stockname = stockname
         data = []
 
-        # TODO load stock from file
         with open(f"stocks/{stockname}.csv", "r") as stockdata:
             stockdata.readline() # skip the header row
 
             for share in stockdata.readlines():
                 data.append(share.strip().split(","))
-            #print(data)
         
         self.data = data
     
@@ -140,17 +133,3 @@ class Stock():
             for share in self.data:
                 data += "\n" + ','.join(share)
             stockdata.write(data)
-    
-
-
-
-    
-
-
-        
-    
-    
-    
-    # TODO function to update stock
-
-    # TODO function to randomly buy/sell stocks
