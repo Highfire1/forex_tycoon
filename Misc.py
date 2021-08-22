@@ -24,6 +24,7 @@ class Info(commands.Cog):
         memberAvatar= user.avatar_url
         
         pl = Player(ctx.author.id)
+        # TODO check player has account before all commands
 
         # create profile embed
         em = discord.Embed(title = "Profile", description = "", color = ctx.author.color)
@@ -38,6 +39,7 @@ class Info(commands.Cog):
     # register player
     # aka, generate a file for the player 
     # and give them some introduction
+    # TODO: add an actual introduction to the bot
     @commands.command()
     async def register(self, ctx):
         if player_exists(ctx.author.id):
@@ -51,8 +53,9 @@ class Info(commands.Cog):
 
         em = discord.Embed(title = user, description = "", color = user.color)
         
-        val = 'Welcome to FOREX Trading!'
-        val += "Before you start your stock market adventures, you absolutely need to know what stocks actually are. In essence, a stock gives you ownership over a part of a company or corporation! Almost any brand you can think of has purchasable stock, from world-renowned brands such as McDonald's or Google, to smaller corporations such as utility companies or startups. These stocks are bought and sold all over the world in stock exchanges that transfer **trillions** of dollars every year. 
+        val = 'Welcome to FOREX Trading!\n\n'
+        val += "Before you start your stock market adventures, you absolutely need to know what stocks actually are. In essence, a stock gives you ownership over a part of a company or corporation! Almost any brand you can think of has purchasable stock, from world-renowned brands such as McDonald's or Google, to smaller corporations such as utility companies or startups. These stocks are bought and sold all over the world in stock exchanges that transfer **trillions** of dollars every year.\n"
+        
         val += "The reason so many brands decide to become publicly traded (in other words, list their stock on a stock market) is simple. Money! When a company enters the stock market, it receives a cash infusion from investors buying their stocks. These investors invest because they believe the price of the stock will increase in the future, and the company is incentivized to continue making good business decisions to increase the value of their stock!"
         
         em.add_field(name="Welcome!", value=val, inline=True)
